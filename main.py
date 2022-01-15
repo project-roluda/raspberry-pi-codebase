@@ -14,9 +14,13 @@ GPIO.setup(29, GPIO.OUT)
 
 cm1 = GPIO.PWM(7, 15)
 cm2 = GPIO.PWM(11, 15)
+cm3 = GPIO.PWM(13, 15)
+cm4 = GPIO.PWM(15, 15)
 
-throttle.throttle(cm1)
-throttle.throttle(cm2)
-
+for i in range(1):
+    throttle.throttle(cm1)
+    throttle.throttle(cm2)
+    throttle.throttle(cm3)
+    throttle.throttle(cm4)
 
 GPIO.cleanup()                                   
