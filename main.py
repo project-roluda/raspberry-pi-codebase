@@ -32,31 +32,36 @@ cm1.start(0)
 cm2.start(0)
 cm3.start(0)
 cm4.start(0)
+cm5.start(0)
 
 GPIO.output(7, True)
 GPIO.output(11, True)
 GPIO.output(13, True)
 GPIO.output(15, True)
+GPIO.output(16, True)
 
-cm1.ChangeDutyCycle(9.5)
-cm2.ChangeDutyCycle(9.5)
-cm3.ChangeDutyCycle(9.5)
-cm4.ChangeDutyCycle(9.5)
+cm1.ChangeDutyCycle(12)
+cm2.ChangeDutyCycle(12)
+cm3.ChangeDutyCycle(12)
+cm4.ChangeDutyCycle(12)
+cm5.ChangeDutyCycle(12)
 time.sleep(1)
 
-cm1.ChangeDutyCycle(3.5)
-cm2.ChangeDutyCycle(3.5)
-cm3.ChangeDutyCycle(3.5)
-cm4.ChangeDutyCycle(3.5)
+cm1.ChangeDutyCycle(2)
+cm2.ChangeDutyCycle(2)
+cm3.ChangeDutyCycle(2)
+cm4.ChangeDutyCycle(2)
+cm5.ChangeDutyCycle(2)
 time.sleep(1)
 
 
-while (time.time()-start) < 5:
+while (time.time()-start) < 2:
     
     cm1.ChangeDutyCycle(7)
     cm2.ChangeDutyCycle(7)
     cm3.ChangeDutyCycle(7)
     cm4.ChangeDutyCycle(7)
+    cm5.ChangeDutyCycle(7)
     
     """
     throttle.neutral_position(cm1, 7)
