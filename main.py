@@ -55,7 +55,7 @@ cm5.ChangeDutyCycle(2)
 time.sleep(1)
 
 
-while (time.time()-start) < 2:
+while (time.time()-start) < 5:
     
     cm1.ChangeDutyCycle(7)
     cm2.ChangeDutyCycle(7)
