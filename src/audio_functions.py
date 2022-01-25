@@ -36,9 +36,18 @@ def sample_audio(record_duration=3):
 
     print(type(frames))
     
+    # archived, but keeping here just in case
     return_dict["channel"] = chans 
     return_dict["sample_width"] = audio.get_sample_size(form_1)
     return_dict["frame_rate"] = sampling_rate
     return_dict["frames"] = frames
+
+    # saving file...
+    wavefile = wave.open(wav_output_filename, "wb")
+    wavefile.setnchannels(chans)
+    wavefile.setsampwidth(audio.get_sample_size(form_1))
+    wavefile.setframerate(sampling_rate)
+    wavefile.writeframes(b"".join(frames))
+    wavefile.close()
 
     config_obj.audio_return_dict = return_dict

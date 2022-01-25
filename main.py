@@ -16,5 +16,6 @@ while True:
     if config_obj.movement_halted == True:
         t2.start()
         print(type(config_obj.audio_return_dict)) 
-        requests.post(URL+"/process_audio", json=config_obj.audio_return_dict)
+        wav_file = open("static/audio_sample.wav", "rb")
+        requests.post(URL+"/process_audio", file=wav_file)
         config_obj.movement_halted = False
