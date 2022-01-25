@@ -12,6 +12,6 @@ t1.start()
 
 while True:
     if config_obj.movement_halted == True:
-        data = t2.start()
+        t2.start()
         print(type(config_obj.audio_return_dict)) 
         config_obj.movement_halted = False

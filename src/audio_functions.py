@@ -42,5 +42,3 @@ def sample_audio(record_duration=3):
     return_dict["frames"] = frames
 
     config_obj.audio_return_dict = return_dict
-
-    return return_dict
