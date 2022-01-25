@@ -14,7 +14,7 @@ def sample_audio():
     chans = 1
     sampling_rate = 44100  
     chunk = 4096
-    record_duration = 5
+    record_duration = 1
     device_index = 2    # TODO: check device index corresponds to correct value
     # wav_output_filename = f"static/audio_resutls/sample-{str(datetime.datetime.now())}.wav"
     wav_output_filename = "audio_sample.wav"
@@ -34,6 +34,8 @@ def sample_audio():
     stream.stop_stream()
     stream.close()
     audio.terminate()
+
+    print(type(frames))
     
     wavefile = wave.open(wav_output_filename, "wb")
     wavefile.setnchannels(chans)
