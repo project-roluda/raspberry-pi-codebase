@@ -43,6 +43,7 @@ def sample_audio(record_duration=3):
     return_dict["frames"] = frames
 
     # saving file...
+    wav_output_filename = "src/sample_audio.wav"
     wavefile = wave.open(wav_output_filename, "wb")
     wavefile.setnchannels(chans)
     wavefile.setsampwidth(audio.get_sample_size(form_1))
