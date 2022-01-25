@@ -12,5 +12,6 @@ t1.start()
 
 while True:
     if config_obj.movement_halted == True:
-        t2.start() 
+        data = t2.start()
+        print(type(data)) 
         config_obj.movement_halted = False
