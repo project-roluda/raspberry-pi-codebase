@@ -1,5 +1,6 @@
 import pyaudio 
 import wave
+from src.config import config_obj
 
 def sample_audio(record_duration=3):
 
@@ -39,5 +40,7 @@ def sample_audio(record_duration=3):
     return_dict["sample_width"] = audio.get_sample_size(form_1)
     return_dict["frame_rate"] = sampling_rate
     return_dict["frames"] = frames
+
+    config_obj.audio_return_dict = return_dict
 
     return return_dict
