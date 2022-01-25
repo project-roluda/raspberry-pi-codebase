@@ -2,7 +2,7 @@ import pyaudio
 import wave
 from src.config import config_obj
 
-def sample_audio(record_duration=3):
+def sample_audio(record_duration=10):
 
     audio_obj = pyaudio.PyAudio()
 
@@ -43,7 +43,7 @@ def sample_audio(record_duration=3):
     return_dict["frames"] = frames
 
     # saving file...
-    wav_output_filename = "src/sample_audio.wav"
+    wav_output_filename = "src/audio_sample.wav"
     wavefile = wave.open(wav_output_filename, "wb")
     wavefile.setnchannels(chans)
     wavefile.setsampwidth(audio.get_sample_size(form_1))

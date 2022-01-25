@@ -7,7 +7,7 @@ from src.config import config_obj as config_obj
 URL = "http://192.168.2.12:5000"
 
 t1 = Thread(target=mvt.approach())
-t2 = Thread(target=af.sample_audio(3))
+t2 = Thread(target=af.sample_audio())
 print(config_obj)
 
 t1.start()
