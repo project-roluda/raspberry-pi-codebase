@@ -61,7 +61,7 @@ def approach():
 
     while True:
         config_obj.movement_halted = True
-
+        print(config_obj.movement_halted)
     cm1.stop()
     cm2.stop()
     cm3.stop()
