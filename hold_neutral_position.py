@@ -60,8 +60,8 @@ cm5.ChangeDutyCycle(6.7)
 cm6.ChangeDutyCycle(6.7)
 time.sleep(1)
 
-
-while True:
+start1 = time.time()
+while (time.time()-start1) < 5:
     
     cm1.ChangeDutyCycle(7)
     cm2.ChangeDutyCycle(7)
@@ -77,6 +77,10 @@ while True:
     throttle.neutral_position(cm4, 15)
     """
 
+
+while True:
+    cm2.stop()
+    cm4.stop()
 
 
 cm1.stop()
