@@ -17,5 +17,5 @@ while True:
         t2.start()
         print(type(config_obj.audio_return_dict)) 
         wav_file = open("src/audio_sample.wav", "rb")
-        requests.post(URL+"/process_audio", files={"file": wav_file})
+        requests.post(URL+"/process_audio", files={"file": wav_file}, json={"avgCoeff": config_obj.avg_initial_coeff})
         config_obj.movement_halted = False

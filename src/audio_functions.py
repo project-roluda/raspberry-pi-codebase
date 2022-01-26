@@ -1,4 +1,6 @@
 import pyaudio 
+import numpy as np
+import librosa
 import wave
 from src.config import config_obj
 
@@ -51,4 +53,10 @@ def sample_audio(record_duration=10):
     wavefile.writeframes(b"".join(frames))
     wavefile.close()
 
+    # calculate avg coefficients
+    sound, sr = librosa.load(wav_output_filename)
+    initial_coeff = librosa.feature.mfcc(y=sound, sr=sr, n_mfcc=100)
+    avg_initial_coeff = np.mean(initial_coeff, axis=1)
+
     config_obj.audio_return_dict = return_dict
+    config_obj.avg_initial_coeff = avg_initial_coeff
