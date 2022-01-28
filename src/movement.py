@@ -36,14 +36,14 @@ def approach():
     GPIO.output(15, True)
     GPIO.output(16, True)
 
-    cm1.ChangeDutyCycle(10)
+    cm1.ChangeDutyCycle(8)
     cm2.ChangeDutyCycle(8)
     cm3.ChangeDutyCycle(8)
     cm4.ChangeDutyCycle(8)
     cm5.ChangeDutyCycle(8)
     time.sleep(1)
 
-    cm1.ChangeDutyCycle(4)
+    cm1.ChangeDutyCycle(6)
     cm2.ChangeDutyCycle(6)
     cm3.ChangeDutyCycle(6)
     cm4.ChangeDutyCycle(6)
