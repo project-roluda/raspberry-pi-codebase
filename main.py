@@ -23,15 +23,7 @@ t3 = Process(target=l_dst.compute_live_distance)
 print(config_obj)
 
 t1.start()
-# processes.append(t1)
 t3.start()
-# processes.append(t3)
-
-# for p in processes:
-    # p.join()
-
-time.sleep(10)
-# mvt.approach()
 
 while True:
     if config_obj.current_distance < 5:
