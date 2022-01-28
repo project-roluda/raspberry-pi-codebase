@@ -4,6 +4,7 @@ from src import movement as mvt
 from src import live_distance as l_dst
 from multiprocessing import Process
 from src.config import config_obj as config_obj
+import time
 
 URL = "https://roluda-test-1.azurewebsites.net"
 # URL = "http://192.168.2.12:5000"
@@ -19,6 +20,8 @@ print(config_obj)
 
 t1.start()
 t3.start()
+
+time.sleep(10)
 
 while True:
     if config_obj.movement_halted == True:
