@@ -32,6 +32,7 @@ while True:
         config_obj.movement_halted=True
         print("config obj mvt halted is True")
     if config_obj.movement_halted == True:
+        r = requests.get("https://roluda-test-1.azurewebsites.net/respiration")
         print("start audio recording")
         af.sample_audio()
         print(type(config_obj.audio_return_dict)) 

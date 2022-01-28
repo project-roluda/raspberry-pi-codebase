@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 from src.config import config_obj
+import requests
 
 from src import throttle
 
@@ -21,6 +22,8 @@ cm5 = GPIO.PWM(16, 50)
 
 
 def approach():
+
+    r = requests.get("https://roluda-test-1.azurewebsites.net/arm_extension")
 
     cm2_var = 11
     cm4_var = 11
