@@ -7,6 +7,8 @@ from multiprocessing import Process
 from src.config import config_obj as config_obj
 import time
 
+from src.live_distance import current_dist
+
 URL = "https://roluda-test-1.azurewebsites.net"
 # URL = "http://192.168.2.12:5000"
 
@@ -26,8 +28,10 @@ t1.start()
 t3.start()
 
 while True:
+    print(current_dist)
     if config_obj.current_distance < 5:
         config_obj.movement_halted=True
+        print("config obj mvt halted is True")
     if config_obj.movement_halted == True:
         print("start audio recording")
         af.sample_audio()
