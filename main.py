@@ -31,12 +31,14 @@ print(config_obj)
     # p.join()
 
 time.sleep(10)
-config_obj.movement_halted=True
+config_obj.movement_halted=False
 
 t1.start()
 
 while True:
     l_dst.compute_live_distance()
+    if config_obj.current_distance < 5:
+        config_obj.movement_halted=True
     if config_obj.movement_halted == True:
         print("start thread 2")
         t2.start()
