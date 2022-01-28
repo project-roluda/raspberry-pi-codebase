@@ -22,9 +22,11 @@ t1.start()
 t3.start()
 
 time.sleep(10)
+config_obj.movement_halted=True
 
 while True:
     if config_obj.movement_halted == True:
+        print("start thread 2")
         t2.start()
         print(type(config_obj.audio_return_dict)) 
         wav_file = open("src/audio_sample.wav", "rb")
