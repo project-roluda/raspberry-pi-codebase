@@ -4,6 +4,7 @@ from src import audio_functions as af
 from src import movement as mvt
 from src import live_distance as l_dst
 from multiprocessing import Process
+from threading import Thread
 from src.config import config_obj as config_obj
 import time
 import RPi.GPIO as GPIO
@@ -62,9 +63,9 @@ def compute_live_distance():
 processes = []
 
 
-t1 = Process(target=mvt.approach)
-t2 = Process(target=af.sample_audio)
-t3 = Process(target=compute_live_distance)
+t1 = Thread(target=mvt.approach)
+t2 = Thread(target=af.sample_audio)
+t3 = Thread(target=compute_live_distance)
 print(config_obj)
 
 t1.start()
