@@ -15,24 +15,23 @@ def compute_live_distance():
     print("setup complete")
 
     try:
-        while True:
-            GPIO.output(TRIG, False)
-            time.sleep(2)
-            GPIO.output(TRIG, True)
-            time.sleep(0.00001)
-            GPIO.output(TRIG, False)
-            
-            while GPIO.input(ECHO)==0:
-                pulse_start = time.time()
+        GPIO.output(TRIG, False)
+        time.sleep(2)
+        GPIO.output(TRIG, True)
+        time.sleep(0.00001)
+        GPIO.output(TRIG, False)
+        
+        while GPIO.input(ECHO)==0:
+            pulse_start = time.time()
 
-            while GPIO.input(ECHO)==1:
-                pulse_end = time.time()
-            
-            pulse_duration = pulse_end - pulse_start
-            distance = round(pulse_duration*17150,2)
+        while GPIO.input(ECHO)==1:
+            pulse_end = time.time()
+        
+        pulse_duration = pulse_end - pulse_start
+        distance = round(pulse_duration*17150,2)
 
-            config_obj.current_distance = distance
-            print(f"Distance: {distance} cm")
+        config_obj.current_distance = distance
+        print(f"Distance: {distance} cm")
 
     except KeyboardInterrupt:
         print("cleaning up")

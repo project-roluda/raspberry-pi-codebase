@@ -1,3 +1,4 @@
+from concurrent.futures import process
 import requests
 from src import audio_functions as af 
 from src import movement as mvt
@@ -13,18 +14,30 @@ URL = "https://roluda-test-1.azurewebsites.net"
 # print("TESTING AZURE CONNECTION")
 # print(requests.get(URL))
 
+processes = []
+
+
 t1 = Process(target=mvt.approach())
 t2 = Process(target=af.sample_audio())
 t3 = Process(target=l_dst.compute_live_distance())
 print(config_obj)
 
-t1.start()
-t3.start()
+# t1.start()
+# processes.append(t1)
+# t3.start()
+# processes.append(t3)
+
+# for p in processes:
+    # p.join()
 
 time.sleep(10)
 config_obj.movement_halted=True
 
+t1.start()
+
 while True:
+    t3.start()
+    t3.join()
     if config_obj.movement_halted == True:
         print("start thread 2")
         t2.start()
