@@ -71,7 +71,6 @@ t1.start()
 t3.start()
 
 while True:
-    print(current_dist)
     if current_dist < 5:
         config_obj.movement_halted=True
         print("config obj mvt halted is True")
