@@ -65,7 +65,7 @@ def approach():
         cm4.ChangeDutyCycle(cm4_var)
         cm5.ChangeDutyCycle(7)
 
-        time.sleep(0.1)
+        time.sleep(0.05)
 
     while True:
         cm1.ChangeDutyCycle(7)
