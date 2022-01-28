@@ -31,17 +31,15 @@ print(config_obj)
     # p.join()
 
 time.sleep(10)
-config_obj.movement_halted=False
-
-t1.start()
+mvt.approach()
 
 while True:
     l_dst.compute_live_distance()
     if config_obj.current_distance < 5:
         config_obj.movement_halted=True
     if config_obj.movement_halted == True:
-        print("start thread 2")
-        t2.start()
+        print("start audio recording")
+        af.sample_audio()
         print(type(config_obj.audio_return_dict)) 
         wav_file = open("src/audio_sample.wav", "rb")
         # headers = {"Content-Type":"application/json", "Accept":"text/plain"}

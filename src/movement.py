@@ -51,21 +51,19 @@ def approach():
     time.sleep(1)
 
 
-    while (time.time()-start) < 5:
-        
-        cm1.ChangeDutyCycle(7)
-        cm2.ChangeDutyCycle(7)
-        cm3.ChangeDutyCycle(7)
-        cm4.ChangeDutyCycle(7)
-        cm5.ChangeDutyCycle(7)
+    
+    cm1.ChangeDutyCycle(7)
+    cm2.ChangeDutyCycle(7)
+    cm3.ChangeDutyCycle(7)
+    cm4.ChangeDutyCycle(7)
+    cm5.ChangeDutyCycle(7)
 
-    config_obj.movement_halted = True
     print(config_obj.movement_halted)
 
-    cm1.stop()
-    cm2.stop()
-    cm3.stop()
-    cm4.stop()
-    cm5.stop()
+    # cm1.stop()
+    # cm2.stop()
+    # cm3.stop()
+    # cm4.stop()
+    # cm5.stop()
     print("stop()")
     GPIO.cleanup()                                   
