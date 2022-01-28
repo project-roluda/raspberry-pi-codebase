@@ -17,21 +17,21 @@ URL = "https://roluda-test-1.azurewebsites.net"
 processes = []
 
 
-t1 = Process(target=mvt.approach())
-t2 = Process(target=af.sample_audio())
-t3 = Process(target=l_dst.compute_live_distance())
+t1 = Process(target=mvt.approach)
+t2 = Process(target=af.sample_audio)
+t3 = Process(target=l_dst.compute_live_distance)
 print(config_obj)
 
-# t1.start()
+t1.start()
 # processes.append(t1)
-# t3.start()
+t3.start()
 # processes.append(t3)
 
 # for p in processes:
     # p.join()
 
 time.sleep(10)
-mvt.approach()
+# mvt.approach()
 
 while True:
     l_dst.compute_live_distance()

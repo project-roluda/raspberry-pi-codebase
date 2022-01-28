@@ -51,12 +51,12 @@ def approach():
     time.sleep(1)
 
 
-    
-    cm1.ChangeDutyCycle(7)
-    cm2.ChangeDutyCycle(7)
-    cm3.ChangeDutyCycle(7)
-    cm4.ChangeDutyCycle(7)
-    cm5.ChangeDutyCycle(7)
+    while True:
+        cm1.ChangeDutyCycle(7)
+        cm2.ChangeDutyCycle(7)
+        cm3.ChangeDutyCycle(7)
+        cm4.ChangeDutyCycle(7)
+        cm5.ChangeDutyCycle(7)
 
     print(config_obj.movement_halted)
 
