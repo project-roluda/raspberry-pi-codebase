@@ -6,7 +6,7 @@ current_dist = 1000
 
 def compute_live_distance():
 
-    global current_dist
+    # global current_dist
 
     GPIO.setmode(GPIO.BOARD)
 
@@ -36,9 +36,9 @@ def compute_live_distance():
             distance = round(pulse_duration*17150,2)
 
             config_obj.current_distance = distance
-            current_dist = distance
+            # current_dist = distance
             print(f"Distance: {distance} cm")
-            time.sleep(2)
+            time.sleep(0.5)
 
     except KeyboardInterrupt:
         print("cleaning up")

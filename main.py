@@ -72,9 +72,9 @@ t1.start()
 t3.start()
 
 while True:
-    print(f"current_dist {current_dist}")
+    # print(f"current_dist {current_dist}")
     time.sleep(3)
-    if current_dist < 5:
+    if config_obj.current_distance < 5:
         config_obj.movement_halted=True
         print("config obj mvt halted is True")
     if config_obj.movement_halted == True:
