@@ -47,14 +47,14 @@ def approach():
     time.sleep(1)
 
     cm1.ChangeDutyCycle(7)
-    cm2.ChangeDutyCycle(2)
+    cm2.ChangeDutyCycle(cm2_var)
     cm3.ChangeDutyCycle(7)
-    cm4.ChangeDutyCycle(2)
+    cm4.ChangeDutyCycle(cm4_var)
     cm5.ChangeDutyCycle(7)
     time.sleep(1)
 
 
-    while config_obj.current_distance > 5:
+    while config_obj.current_distance > 5 and (cm2_var>6 or cm4_var>6):
 
         cm2_var -= 0.1
         cm4_var -= 0.1
