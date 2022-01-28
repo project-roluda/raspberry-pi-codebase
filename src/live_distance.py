@@ -36,3 +36,4 @@ def compute_live_distance():
     except KeyboardInterrupt:
         print("cleaning up")
         GPIO.cleanup()
+        raise IndexError("Stopping program after CTRL+C")
