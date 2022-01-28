@@ -38,6 +38,7 @@ def compute_live_distance():
             config_obj.current_distance = distance
             current_dist = distance
             print(f"Distance: {distance} cm")
+            time.sleep(2)
 
     except KeyboardInterrupt:
         print("cleaning up")
