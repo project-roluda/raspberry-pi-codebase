@@ -18,7 +18,7 @@ t3 = Thread(target=l_dst.compute_live_distance())
 print(config_obj)
 
 t1.start()
-t2.start()
+t3.start()
 
 while True:
     if config_obj.movement_halted == True:
