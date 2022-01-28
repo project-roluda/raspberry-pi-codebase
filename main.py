@@ -22,25 +22,37 @@ processes = []
 def start_breathing():
     r = requests.get("https://roluda-test-1.azurewebsites.net/respiration")
 
-t1 = Thread(target=mvt.approach)
-t2 = Thread(target=af.sample_audio)
-t3 = Thread(target=l_dst.compute_live_distance)
-print(config_obj)
-
-t1.start()
-t3.start()
-
 while True:
-    if config_obj.current_distance < 5:
-        config_obj.movement_halted=True
-        print("config obj mvt halted is True")
-    if config_obj.movement_halted == True:
-        Thread(target=start_breathing).start()
-        print("start audio recording")
-        af.sample_audio()
-        print(type(config_obj.audio_return_dict)) 
-        wav_file = open("src/audio_sample.wav", "rb")
-        # headers = {"Content-Type":"application/json", "Accept":"text/plain"}
-        resp =  requests.post(URL+"/process_audio", json={"avgCoeff":config_obj.avg_initial_coeff.tolist()})
-        config_obj.movement_halted = False
-        print(resp)
+
+    time.sleep(3)
+    init_resp = requests.get(URL)
+    json_resp_info = init_resp.json()
+    if json_resp_info["status"] != "standby":
+
+        t1 = Thread(target=mvt.approach)
+        t2 = Thread(target=af.sample_audio)
+        t3 = Thread(target=l_dst.compute_live_distance)
+        print(config_obj)
+
+        t1.start()
+        t3.start()
+
+        while True:
+            time.sleep(1)
+            if config_obj.current_distance < 5:
+                config_obj.movement_halted=True
+                print("config obj mvt halted is True")
+            if config_obj.movement_halted == True:
+                Thread(target=start_breathing).start()
+                print("start audio recording")
+                af.sample_audio()
+                print(type(config_obj.audio_return_dict)) 
+                wav_file = open("src/audio_sample.wav", "rb")
+                # headers = {"Content-Type":"application/json", "Accept":"text/plain"}
+                resp =  requests.post(URL+"/process_audio", json={"avgCoeff":config_obj.avg_initial_coeff.tolist()})
+                config_obj.movement_halted = False
+                print(resp)
+            init_resp = requests.get(URL)
+            json_resp_info = init_resp.json()
+            if json_resp_info["status"] == "standby":
+                break
