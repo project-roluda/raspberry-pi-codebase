@@ -22,8 +22,8 @@ cm5 = GPIO.PWM(16, 50)
 
 def approach():
 
-    cm2_var = 9
-    cm4_var = 9
+    cm2_var = 11
+    cm4_var = 11
 
     start = time.time()
 
@@ -51,7 +51,7 @@ def approach():
     cm3.ChangeDutyCycle(7)
     cm4.ChangeDutyCycle(cm4_var)
     cm5.ChangeDutyCycle(7)
-    time.sleep(1)
+    time.sleep(3)
 
 
     while config_obj.current_distance > 5 and (cm2_var>6 or cm4_var>6):
