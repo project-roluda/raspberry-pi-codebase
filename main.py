@@ -34,7 +34,6 @@ time.sleep(10)
 # mvt.approach()
 
 while True:
-    l_dst.compute_live_distance()
     if config_obj.current_distance < 5:
         config_obj.movement_halted=True
     if config_obj.movement_halted == True:
