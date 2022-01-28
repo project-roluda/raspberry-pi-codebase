@@ -2,17 +2,18 @@ import RPi.GPIO as GPIO
 import time
 from src.config import config_obj
 
-GPIO.setmode(GPIO.BOARD)
-
-TRIG = 31
-ECHO = 33
-
-GPIO.setup(TRIG, GPIO.OUT)
-GPIO.setup(ECHO, GPIO.IN)
-
-print("setup complete")
-
 def compute_live_distance():
+
+    GPIO.setmode(GPIO.BOARD)
+
+    TRIG = 31
+    ECHO = 33
+
+    GPIO.setup(TRIG, GPIO.OUT)
+    GPIO.setup(ECHO, GPIO.IN)
+
+    print("setup complete")
+
     try:
         while True:
             GPIO.output(TRIG, False)
