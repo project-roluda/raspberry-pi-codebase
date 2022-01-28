@@ -12,7 +12,7 @@ import RPi.GPIO as GPIO
 URL = "https://roluda-test-1.azurewebsites.net"
 # URL = "http://192.168.2.12:5000"
 
-current_dist
+current_dist = 100
 
 def compute_live_distance():
 
