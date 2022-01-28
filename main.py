@@ -28,7 +28,7 @@ while True:
     init_resp = requests.get(URL)
     json_resp_info = init_resp.json()
     print(json_resp_info)
-    if json_resp_info["status"] != "standby":
+    if json_resp_info["status"] == "standby":
 
         t1 = Thread(target=mvt.approach)
         t2 = Thread(target=af.sample_audio)
