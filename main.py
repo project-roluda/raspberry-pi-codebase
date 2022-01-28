@@ -16,7 +16,6 @@ current_dist = 100
 
 def compute_live_distance():
 
-    global current_dist
 
     GPIO.setmode(GPIO.BOARD)
 
@@ -45,7 +44,7 @@ def compute_live_distance():
             pulse_duration = pulse_end - pulse_start
             distance = round(pulse_duration*17150,2)
 
-            config_obj.current_distance = distance
+            global current_dist
             current_dist = distance
             print(f"Distance: {distance} cm")
             time.sleep(2)
@@ -71,6 +70,8 @@ t1.start()
 t3.start()
 
 while True:
+    print(f"current_dist {current_dist}")
+    time.sleep(3)
     if current_dist < 5:
         config_obj.movement_halted=True
         print("config obj mvt halted is True")
