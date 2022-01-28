@@ -4,7 +4,7 @@ import librosa
 import wave
 from src.config import config_obj
 
-def sample_audio(record_duration=1):
+def sample_audio(record_duration=10):
 
     audio_obj = pyaudio.PyAudio()
 
