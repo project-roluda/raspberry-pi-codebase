@@ -6,11 +6,54 @@ from src import live_distance as l_dst
 from multiprocessing import Process
 from src.config import config_obj as config_obj
 import time
+import RPi.GPIO as GPIO
 
-from src.live_distance import current_dist
 
 URL = "https://roluda-test-1.azurewebsites.net"
 # URL = "http://192.168.2.12:5000"
+
+current_dist
+
+def compute_live_distance():
+
+    global current_dist
+
+    GPIO.setmode(GPIO.BOARD)
+
+    TRIG = 31
+    ECHO = 33
+
+    GPIO.setup(TRIG, GPIO.OUT)
+    GPIO.setup(ECHO, GPIO.IN)
+
+    print("setup complete")
+
+    try:
+        while True:
+            GPIO.output(TRIG, False)
+            time.sleep(1)
+            GPIO.output(TRIG, True)
+            time.sleep(0.00001)
+            GPIO.output(TRIG, False)
+            
+            while GPIO.input(ECHO)==0:
+                pulse_start = time.time()
+
+            while GPIO.input(ECHO)==1:
+                pulse_end = time.time()
+            
+            pulse_duration = pulse_end - pulse_start
+            distance = round(pulse_duration*17150,2)
+
+            config_obj.current_distance = distance
+            current_dist = distance
+            print(f"Distance: {distance} cm")
+            time.sleep(2)
+
+    except KeyboardInterrupt:
+        print("cleaning up")
+        GPIO.cleanup()
+        raise IndexError("Stopping program after CTRL+C")
 
 
 # print("TESTING AZURE CONNECTION")
@@ -21,7 +64,7 @@ processes = []
 
 t1 = Process(target=mvt.approach)
 t2 = Process(target=af.sample_audio)
-t3 = Process(target=l_dst.compute_live_distance)
+t3 = Process(target=compute_live_distance)
 print(config_obj)
 
 t1.start()
@@ -29,7 +72,7 @@ t3.start()
 
 while True:
     print(current_dist)
-    if config_obj.current_distance < 5:
+    if current_dist < 5:
         config_obj.movement_halted=True
         print("config obj mvt halted is True")
     if config_obj.movement_halted == True:
