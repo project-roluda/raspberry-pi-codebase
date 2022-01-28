@@ -65,7 +65,7 @@ processes = []
 
 t1 = Thread(target=mvt.approach)
 t2 = Thread(target=af.sample_audio)
-t3 = Thread(target=compute_live_distance)
+t3 = Thread(target=l_dst.compute_live_distance)
 print(config_obj)
 
 t1.start()
