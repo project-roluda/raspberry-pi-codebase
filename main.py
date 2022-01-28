@@ -36,8 +36,7 @@ config_obj.movement_halted=True
 t1.start()
 
 while True:
-    t3.start()
-    t3.join()
+    l_dst.compute_live_distance()
     if config_obj.movement_halted == True:
         print("start thread 2")
         t2.start()
