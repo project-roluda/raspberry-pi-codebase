@@ -75,10 +75,11 @@ while True:
 
 
 
+while True:
+    cm1.stop()
+    cm2.stop()
+    cm3.stop()
+    cm4.stop()
 
-cm1.stop()
-cm2.stop()
-cm3.stop()
-cm4.stop()
 print("stop()")
 GPIO.cleanup()                                   
