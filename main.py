@@ -47,6 +47,7 @@ def compute_live_distance():
             global current_dist
             current_dist = distance
             print(f"Distance: {distance} cm")
+            print(f"Internal current_dist: {current_dist}")
             time.sleep(2)
 
     except KeyboardInterrupt:
