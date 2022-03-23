@@ -28,7 +28,7 @@ while True:
     time.sleep(3)
 #     init_resp = requests.get(URL)
 #     json_resp_info = init_resp.json()
-    print(json_resp_info)
+#     print(json_resp_info)
 #     if json_resp_info["status"] == "standby":
     if True: 
         GPIO.cleanup()
@@ -57,6 +57,6 @@ while True:
                 config_obj.movement_halted = False
                 print(resp)
             init_resp = requests.get(URL)
-            json_resp_info = init_resp.json()
-            if json_resp_info["status"] == "standby":
-                break
+            # json_resp_info = init_resp.json()
+            # if json_resp_info["status"] == "standby":
+                # break
