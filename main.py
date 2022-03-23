@@ -43,6 +43,7 @@ while True:
         t3.start()
 
         while True:
+            print("main loop")
             time.sleep(1)
             if config_obj.current_distance < 5:
                 config_obj.movement_halted=True
