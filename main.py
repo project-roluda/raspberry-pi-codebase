@@ -45,6 +45,8 @@ while True:
         while True:
             print("main loop")
             print(config_obj.current_distance)
+            print(t1.is_alive(), t2.is_alive(), t3.is_alive())
+            print()
             time.sleep(1)
             if config_obj.current_distance < 5:
                 config_obj.movement_halted=True
