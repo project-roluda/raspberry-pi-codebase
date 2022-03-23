@@ -10,7 +10,7 @@ import RPi.GPIO as GPIO
 import time
 
 
-URL = "https://roluda-test-1.azurewebsites.net"
+URL = "https://roluda-test-v6.azurewebsites.net"
 # URL = "http://192.168.2.12:5000"
 
 current_dist = 100
@@ -23,15 +23,17 @@ processes = []
 def start_breathing():
     r = requests.get("https://roluda-test-v6.azurewebsites.net/respiration")
 
+GPIO.cleanup()
+    
 while True:
 
     time.sleep(3)
-#     init_resp = requests.get(URL)
-#     json_resp_info = init_resp.json()
-#     print(json_resp_info)
-#     if json_resp_info["status"] == "standby":
+    init_resp = requests.get(URL)
+    json_resp_info = init_resp.json()
+    print(json_resp_info)
+    if json_resp_info["status"] == "standby":
     if True: 
-        GPIO.cleanup()
+#         GPIO.cleanup()
 
         t1 = Thread(target=mvt.approach)
         t2 = Thread(target=af.sample_audio)
@@ -57,6 +59,6 @@ while True:
                 config_obj.movement_halted = False
                 print(resp)
             init_resp = requests.get(URL)
-            # json_resp_info = init_resp.json()
-            # if json_resp_info["status"] == "standby":
-                # break
+            json_resp_info = init_resp.json()
+            if json_resp_info["status"] == "standby":
+                break
