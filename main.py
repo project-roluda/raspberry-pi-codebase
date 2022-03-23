@@ -32,7 +32,6 @@ while True:
     json_resp_info = init_resp.json()
     print(json_resp_info)
     if json_resp_info["status"] == "standby":
-    if True: 
 #         GPIO.cleanup()
 
         t1 = Thread(target=mvt.approach)
