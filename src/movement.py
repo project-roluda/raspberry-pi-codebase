@@ -22,9 +22,6 @@ cm3 = GPIO.PWM(13, 50)
 cm4 = GPIO.PWM(15, 50)
 cm5 = GPIO.PWM(16, 50)
 
-cm2_var = 11
-cm4_var = 11
-
 start = time.time()
 
 cm1.start(0)
@@ -42,6 +39,9 @@ GPIO.output(16, True)
 
 
 def approach():
+    
+    cm2_var = 11
+    cm4_var = 11
 
     r = requests.get("https://roluda-test-v6.azurewebsites.net/arm_extension")
 
