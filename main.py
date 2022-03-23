@@ -20,7 +20,7 @@ processes = []
 
 
 def start_breathing():
-    r = requests.get("https://roluda-test-1.azurewebsites.net/respiration")
+    r = requests.get("https://roluda-test-v6.azurewebsites.net/respiration")
 
 while True:
 
