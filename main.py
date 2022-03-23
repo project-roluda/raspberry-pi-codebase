@@ -6,6 +6,7 @@ from src import live_distance as l_dst
 from multiprocessing import Process
 from threading import Thread
 from src.config import config_obj as config_obj
+import RPi.GPIO as GPIO
 import time
 
 
@@ -25,10 +26,12 @@ def start_breathing():
 while True:
 
     time.sleep(3)
-    init_resp = requests.get(URL)
-    json_resp_info = init_resp.json()
+#     init_resp = requests.get(URL)
+#     json_resp_info = init_resp.json()
     print(json_resp_info)
-    if json_resp_info["status"] == "standby":
+#     if json_resp_info["status"] == "standby":
+    if True: 
+        GPIO.cleanup()
 
         t1 = Thread(target=mvt.approach)
         t2 = Thread(target=af.sample_audio)
