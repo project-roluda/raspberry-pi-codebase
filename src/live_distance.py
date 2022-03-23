@@ -44,3 +44,6 @@ def compute_live_distance():
         print("cleaning up")
         GPIO.cleanup()
         raise IndexError("Stopping program after CTRL+C")
+
+    print("I've arrived at the end of the program")
+        
