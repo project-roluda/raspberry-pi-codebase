@@ -21,7 +21,7 @@ def compute_live_distance():
     try:
         while True:
             GPIO.output(TRIG, False)
-            time.sleep(1)
+            time.sleep(.1)
             GPIO.output(TRIG, True)
             time.sleep(0.00001)
             GPIO.output(TRIG, False)
@@ -38,7 +38,7 @@ def compute_live_distance():
             config_obj.current_distance = distance
             # current_dist = distance
             print(f"Distance: {distance} cm")
-            time.sleep(0.5)
+            time.sleep(0.1)
 
     except KeyboardInterrupt:
         print("cleaning up")
