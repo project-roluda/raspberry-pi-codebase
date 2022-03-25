@@ -9,7 +9,7 @@ from src.config import config_obj as config_obj
 import time
 
 
-URL = "https://roluda-test-1.azurewebsites.net"
+URL = "https://roluda-test-v6.azurewebsites.net"
 # URL = "http://192.168.2.12:5000"
 
 current_dist = 100
@@ -18,9 +18,11 @@ current_dist = 100
 
 processes = []
 
+# GPIO.setmode(GPIO.BOARD)
+
 
 def start_breathing():
-    r = requests.get("https://roluda-test-1.azurewebsites.net/respiration")
+    r = requests.get("https://roluda-test-v6.azurewebsites.net/respiration")
 
 while True:
 
